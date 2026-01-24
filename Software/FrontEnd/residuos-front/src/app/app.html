@@ -1,0 +1,44 @@
+<div class="container">
+
+  <h1>Clasificación Inteligente de Residuos</h1>
+  <p class="subtitle">
+    Selecciona un tipo de residuo y obtén una recomendación desde la base de datos.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>🌱 Orgánico</h3>
+      <p>Residuos biodegradables como restos de comida o cáscaras.</p>
+      <button (click)="buscar('organico')">
+        Obtener residuo
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>♻️ Reciclable</h3>
+      <p>Materiales reutilizables como plástico, papel o vidrio.</p>
+      <button (click)="buscar('reciclable')">
+        Obtener residuo
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>🚯 No reciclable</h3>
+      <p>Residuos que no pueden ser reutilizados.</p>
+      <button (click)="buscar('no reciclable')">
+        Obtener residuo
+      </button>
+    </div>
+
+  </div>
+
+  <div *ngIf="resultado" class="result">
+    <h3>Resultado obtenido:</h3>
+    <p><strong>Tipo:</strong> {{ resultado.residuoType }}</p>
+    <p><strong>Descripción:</strong> {{ resultado.residuoDescription }}</p>
+  </div>
+
+</div>
+
+<router-outlet />
