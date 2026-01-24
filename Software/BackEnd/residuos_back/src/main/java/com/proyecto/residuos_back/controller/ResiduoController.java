@@ -5,13 +5,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/test")
-public class TestController {
+@RequestMapping("/residuo")
+public class ResiduoController {
 
     private final ResiduoService service;
 
-    public TestController(ResiduoService service) {
+    public ResiduoController(ResiduoService service) {
         this.service = service;
     }
 
@@ -19,4 +20,10 @@ public class TestController {
     public List<Residuo> probarSelect() {
         return service.obtenerTodos();
     }
+
+    @GetMapping("/aleatorio")
+    public Residuo obtenerAleatorio(@RequestParam String tipo) {
+        return service.obtenerResiduoAleatorio(tipo);
+    }
+
 }
