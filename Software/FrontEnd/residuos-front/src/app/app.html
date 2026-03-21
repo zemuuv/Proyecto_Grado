@@ -1,9 +1,35 @@
 <div class="container">
 
-  <h1>Clasificación Inteligente de Residuos</h1>
+  <h1>Clasificador Inteligente de Residuos</h1>
   <p class="subtitle">
-    Selecciona un tipo de residuo y obtén una recomendación desde la base de datos.
+    Sube una imagen o selecciona un tipo de residuo para aprender cómo reciclarlo
   </p>
+
+  <!-- SUBIDA DE IMAGEN -->
+
+  <div class="upload-box">
+
+    <input type="file" (change)="seleccionarImagen($event)" accept="image/png, image/jpeg">
+
+    <button (click)="enviarImagen()">
+      Analizar imagen
+    </button>
+
+  </div>
+
+
+  <!-- PREVIEW -->
+
+  <div class="preview" *ngIf="previewUrl">
+
+    <h3>Imagen seleccionada</h3>
+
+    <img [src]="previewUrl">
+
+  </div>
+
+
+  <!-- TARJETAS -->
 
   <div class="cards">
 
@@ -33,12 +59,31 @@
 
   </div>
 
-  <div *ngIf="resultado" class="result">
-    <h3>Resultado obtenido:</h3>
-    <p><strong>Tipo:</strong> {{ resultado.residuoType }}</p>
-    <p><strong>Descripción:</strong> {{ resultado.residuoDescription }}</p>
+
+  <!-- RESULTADO IA -->
+
+  <div class="result" *ngIf="resultadoIA">
+
+    <h2>Resultado de la IA</h2>
+
+    <p>
+      Tipo detectado: <strong>{{ resultadoIA }}</strong>
+    </p>
+
   </div>
 
-</div>
 
-<router-outlet />
+  <div *ngIf="resultado" class="result">
+
+    <h3>Información del residuo</h3>
+
+    <p>
+      <strong>Tipo:</strong> {{ tipoSeleccionado }}
+    </p>
+
+    <p>
+      <strong>Descripción:</strong> {{ resultado.residuoDescription }}
+    </p>
+
+  </div>
+</div>
