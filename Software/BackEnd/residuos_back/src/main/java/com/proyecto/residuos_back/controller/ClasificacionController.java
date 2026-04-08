@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/ia")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class ClasificacionController {
 
     private final ClasificacionService service;
@@ -17,6 +17,8 @@ public class ClasificacionController {
 
     @PostMapping("/clasificar")
     public String clasificar(@RequestParam("imagen") MultipartFile imagen) throws Exception {
+
+        System.out.println("hola");
 
         return service.clasificarImagen(imagen);
 

@@ -1,0 +1,28 @@
+.container {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.upload-box {
+  margin: 20px 0;
+}
+
+.cards {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 10px;
+  width: 200px;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 10px;
+  background: #eee;
+}
