@@ -1,4 +1,4 @@
-const API_URL = "http://192.168.1.7:8080/residuo";
+const API_URL = "http://localhost:8081/residuo";
 
 // 🔍 Obtener residuo aleatorio por tipo
 export const obtenerResiduoAleatorio = async (tipo) => {

@@ -60,7 +60,7 @@ function Home() {
     formData.append("imagen", imagen);
 
     try {
-      const response = await fetch("http://192.168.1.7:8080/ia/clasificar", {
+      const response = await fetch("http://localhost:8081/ia/clasificar", {
         method: "POST",
         body: formData,
       });
